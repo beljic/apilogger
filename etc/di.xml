@@ -1,0 +1,22 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+	<type name="Magento\Webapi\Controller\Rest">
+		<plugin name="PSSoftware_ApiLogger_Plugin_Magento_Webapi_Controller_Rest" type="PSSoftware\ApiLogger\Plugin\Magento\Webapi\Controller\Rest" sortOrder="10" disabled="false"/>
+	</type>
+	<type name="Magento\Framework\Webapi\Rest\Response">
+		<plugin name="PSSoftware_ApiLogger_Plugin_Magento_Framework_Webapi_Rest_Response" type="PSSoftware\ApiLogger\Plugin\Magento\Framework\Webapi\Rest\Response" sortOrder="10" disabled="false"/>
+	</type>
+    <type name="PSSoftware\ApiLogger\Model\Logger\Handler">
+        <arguments>
+            <argument name="filesystem" xsi:type="object">Magento\Framework\Filesystem\Driver\File</argument>
+        </arguments>
+    </type>
+    <type name="PSSoftware\ApiLogger\Model\Logger\Logger">
+        <arguments>
+            <argument name="name" xsi:type="string">PSSoftware_ApiLogger</argument>
+            <argument name="handlers"  xsi:type="array">
+                <item name="system" xsi:type="object">PSSoftware\ApiLogger\Model\Logger\Handler</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

@@ -1,0 +1,22 @@
+<?php
+
+//create block Fourtekgear\GA\Block\Onepage\Success\Purchase.php
+$block = $this->getLayout()->createBlock('Fourtekgear\GA\Block\Onepage\Success\Purchase');
+
+
+?>
+<?php
+/**
+ * @author      Dejan Beljic <dejan.beljic@toptal.com>
+ * @package     Fourtekgear_GA
+ */
+?>
+<?php
+/** @var $block \Fourtekgear\GA\Block\Onepage\Success\Purchase */
+?>
+<?php $result = $block->getPurchaseGaCodeTest(); ?>
+<script type="text/javascript">
+    window.addEventListener('gtm_loaded', function() {
+        <?php echo implode("\n", $result) . "\n";?>
+    });
+</script>
